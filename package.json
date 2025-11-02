@@ -1,11 +1,14 @@
 {
   "name": "mbaza-ai-backend",
-  "version": "0.7.0",
+  "version": "1.0.0",
+  "description": "Mbaza AI backend (Render-ready, Kinyarwanda-focused, Groq + optional Tavily)",
   "type": "module",
-  "engines": { "node": ">=18.17 <=22.x" },
+  "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "build": "echo \"no build step\""
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "cors": "^2.8.5",
