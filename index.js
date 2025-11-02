@@ -1,3 +1,19 @@
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import translate from '@vitalets/google-translate-api';
+import Groq from 'groq-sdk';
+
+dotenv.config();
+
+const app = express();
+const port = process.env.PORT || 10000;
+
+app.use(cors());
+app.use(express.json());
+
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+
 app.get('/translate', async (req, res) => {
   const { text } = req.query;
 
@@ -36,4 +52,8 @@ app.get('/translate', async (req, res) => {
     console.error('TRANSLATION / LLM ERROR:', error);
     res.status(500).json({ translated: 'Habaye ikosa. Ongera ugerageze.' });
   }
+});
+
+app.listen(port, () => {
+  console.log(`✅ Backend running on port ${port}`);
 });
